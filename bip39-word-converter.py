@@ -15,7 +15,7 @@ def get_word_indices(mnemonic_phrase):
     # Get the word indices with zero-padding
     indices = []
     for word in words:
-        index = mnemo.wordlist.index(word)
+        index = mnemo.wordlist.index(word) + 1
         padded_index = str(index).zfill(4)  # Pad with zeros to ensure length of 4
         indices.append(padded_index)
 
@@ -28,7 +28,7 @@ def get_word_from_indices(indices):
     # Get words from indices
     words = []
     for index in indices:
-        word = mnemo.wordlist[int(index)]  # Convert back to integer
+        word = mnemo.wordlist[int(index) - 1]  # Convert back to integer
         words.append(word)
 
     return words
